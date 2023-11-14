@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./index.css">
+  <title>Document</title>
+</head>
+
+<body class="bg-light">
+
+  <!-- NAVBAR -->
+  <div class="overflow-hidden" style="box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);">
+    <div class="row p-2">
+      <div class="col-2  pt-2 ">
+        <i class="fa-solid fa-user fa-xl ps-2 cursor-pointer" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasExample1" aria-controls="offcanvasExample"></i>
+      </div>
+      <div class="col-8  d-flex justify-content-center align-items-center">
+        <i class="fa-solid fa-bars fa-xl"></i>
+        <input class="form-control me-1 w-75 ms-4" type="search" id="searchInput2" placeholder="Search &#128269;" aria-label="Search"
+          style="text-align: right;">
+          
+      </div>
+     
+      <div class="col-2  d-flex align-items-center justify-content-end">
+       
+        <!-- TOGGLE BUTTON TO SHOW OFFCANVAS -->
+        <i class="fa-solid fa-bars fa-xl me-3 cursor-pointer" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasExample" aria-controls="offcanvasExample"></i>
+          
+      </div>
+      <div id="searchResults2" style="text-align: center;">
+        <!-- Dummy data will be displayed here -->
+      </div>
+  </div>
+
+  
+</div>
+  <!--RIGHT OFFCANVAS  -->
+
+  <div class="offcanvas offcanvas-end w-25" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <ul class="list-unstyled">
+      <li class=" pe-2 d-flex justify-content-end mt-5 p-3 cursor-pointer" type="button">
+        <i class="fa-solid fa-house"></i>
+      </li>
+      <li class=" pe-2 d-flex  justify-content-end mt-3  p-3 cursor-pointer" type="button">
+        <i class="fa-solid fa-chart-simple"></i>
+      </li>
+      <li class=" pe-2 d-flex  justify-content-end mt-3 p-3  cursor-pointer" type="button">
+        <i class="fa-solid fa-cart-shopping"></i>
+      </li>
+      <li class=" pe-2 d-flex  justify-content-end mt-3 p-3  cursor-pointer" type="button">
+        <i class="fa-solid fa-flag"></i>
+      </li>
+      <li class=" pe-2 d-flex  justify-content-end mt-3 p-3  cursor-pointer" type="button">
+        <i class="fa-solid fa-gear"></i>
+      </li>
+    </ul>
+    <div class="position-relative mt-auto">
+      <button class="btn btn-lg clr clr-txt rounded-0 w-100" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">Exist</button>
+    </div>
+  </div>
+
+  <!-- LEFT OFFCANVAS -->
+  <div class="offcanvas offcanvas-start w-35 overflow-auto" data-bs-scroll="true" tabindex="-1" id="offcanvasExample1"
+    aria-labelledby="offcanvasExampleLabel">
+
+    <ul class="list-unstyled">
+      <li class=" pe-1 p-4 ">
+        <i class="fa-solid fa-circle-xmark d-flex justify-content-end cursor-pointer fa-xl txt" type="button"
+          data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop"></i>
+        <div class="container d-flex justify-content-center">
+          <img class="product-image" height="100" width="75" src="" alt="Featured Image">
+
+        </div>
+        <p class="container d-flex align-items-center justify-content-center "><span class="product-name">Product Name</span></p>
+      </li>
+
+      <li class=" pe-2 d-flex  justify-content-evenly mt-2  p-2 cursor-pointer align-items-center" type="button">
+        <i class="fa-solid fa-paste mx-1 me-4"></i> <span class="mx-3"> ABCD-298392 </span> <span
+          class=" d-flex txt mx-3 align-items-end justify-content-end"> :SKU </span>
+      </li>
+      <li class=" pe-2 d-flex  justify-content-evenly mt-3 p-2  cursor-pointeralign-items-center" type="button">
+        <i class="fa-solid fa-paste mx-1 me-4"></i> <span class="mx-3"> ABCD-298392 </span> <span
+          class=" d-flex txt mx-3 align-items-end justify-content-end"> :SKU </span>
+      </li>
+      <li class=" pe-2 d-flex  justify-content-evenly mt-3 p-2  cursor-pointer align-items-center">
+        <i class="invisible fa-solid fa-paste mx-1 me-4"></i> <span class="mx-3" id="price1"> ABCD-298392 </span> <span
+          class=" d-flex txt mx-3 align-items-end justify-content-end"> :SKU </span>
+      </li>
+      <li class="container mt-3 shadow-lg">
+        <div class="row">
+          <div class="col-4 p-3 active-none d-flex justify-content-center "type="button" onclick="activateColumn(this)">
+              Test 1
+          </div>
+          <div class="col-4 p-3 active-none d-flex justify-content-center" type="button" onclick="activateColumn(this)">
+Test 2
+          </div>
+          <div class="col-4 p-3 active-none d-flex justify-content-center" type="button" onclick="activateColumn(this)">
+            Test 3
+          </div>
+        </div>
+      </li>
+      
+      <div class="container ">
+        <li class="container mt-2  shadow-lg text-center p-3 rounded">
+
+          <div class="col-12 fs-3 fs-bold txt" id="display">
+            1
+          </div>
+        </li>
+        <div class="container shadow-lg mt-2">
+          <li class="container text-center p-2">
+            <div class="row">
+              <div class="col-4 p-1 border-end border-bottom fs-3 fs-bold txt" type="button" onclick="appendToDisplay('1')">1</div>
+              <div class="col-4 p-1 border-end border-bottom fs-3 fs-bold txt" type="button" onclick="appendToDisplay('2')">2</div>
+              <div class="col-4 p-1 border-end border-bottom fs-3 fs-bold txt" type="button" onclick="appendToDisplay('3')">3</div>
+              <li class="container text-center p-2">
+                <div class="row">
+                  <div class="col-4 p-1 border-end border-bottom border-bottom  fs-3 fs-bold txt" type="button" onclick="appendToDisplay('4')">
+                    4
+                  </div>
+                  <div class="col-4 p-1 border-end border-bottom fs-3 fs-bold txt" type="button" onclick="appendToDisplay('5')">
+                    5
+                  </div>
+                  <div class="col-4 p-1 border-end border-bottom fs-3 fs-bold txt" type="button" onclick="appendToDisplay('6')">
+                    6
+                  </div>
+                </div>
+              </li>
+              <li class="container  text-center p-2">
+                <div class="row">
+                  <div class="col-4 p-1 border-end border-bottom fs-3 fs-bold txt" type="button" onclick="appendToDisplay('7')">
+                    7
+                  </div>
+                  <div class="col-4 p-1 border-end border-bottom fs-3 fs-bold txt" type="button" onclick="appendToDisplay('8')">
+                    8
+                  </div>
+                  <div class="col-4 p-1 border-end border-bottom fs-3 fs-bold txt" type="button" onclick="appendToDisplay('9')">
+                    9
+                  </div>
+                </div>
+              </li>
+              <li class="container  text-center p-2">
+                <div class="row">
+                  <div class="col-4 p-1 border-end border-bottom fs-3 fs-bold txt" type="button" onclick="appendToDisplay('.')">
+                    .
+                  </div>
+                  <div class="col-4 p-1 border-end border-bottom fs-3 fs-bold txt" type="button" onclick="appendToDisplay('0')">
+                    0
+                  </div>
+                  <div class="col-4 p-1 border-end border-bottom fs-3 fs-bold txt" type="button">
+                    <i class="fa-solid fa-delete-left"></i>
+                  </div>
+                </div>
+              </li>
+          
+
+        
+      </div>
+    </ul>
+    <div class="position-relative mt-auto">
+      <button class="btn btn-lg  rounded-0 w-100 clr" type="button">Confirm
+      </button>
+    </div>
+
+  </div>
+
+
+  <!-- LAYOUT -->
+
+  <div class="mx-4 my-4">
+    <div class="row ">
+      <!-- LEFT CONTAINER -->
+
+      <div class="col-12 col-md-4 mb-4 d-flex rounded shadow-lg bg-white px-0 flex-column">
+        <div class="d-flex mb-5 p-3">
+          <div class="col-6 d-flex align-items-center">
+            <i class="fa-solid fa-trash txt"></i>
+          </div>
+          <div class="col-6 d-flex justify-content-end">
+            <button type="button" class="btn borclr border-orange rounded txt" data-bs-toggle="modal" data-bs-target="#exampleModal">Add
+              <i class="fa-solid fa-circle-plus  "></i>
+            </button>
+          </div>
+        </div>
+
+
+
+        <!-- ADD ITEMS BLOCK -->
+        <div>
+          <ul class="list-unstyled bg-light p-3">
+            <li class="d-flex justify-content-end">
+              <span class="me-3 user">user</span>
+              <i class="fa-solid fa-user fa-2xl txt py-2 txt" type="button"></i>
+            </li>
+            <li class="  py-3 d-flex justify-content-between">
+              <span>1500 $</span>
+              <span>Total</span>
+            </li>
+            <li class="py-3 d-flex justify-content-between">
+              <span>15 $</span>
+              <span>Tax</span>
+            </li>
+          </ul>
+          <ul class="list-unstyled p-3">
+            <li class="cursor-pointer p-1">
+              <div class="row">
+                <div class="col-6">
+                  <i class="fa-solid fa-circle-xmark fa-lg txt " type="button"></i>
+                  <span style="margin: 0.5rem;">99.99 $</span>
+                </div>
+                <div class="col-6 d-flex justify-content-end">
+                  <span class="me-4">test 3</span>
+                  <span class="me-3">2</span>
+                  <i class="fa-solid fa-angle-left fa-lg mt-2 pt-1 txt" type="button"></i>
+                </div>
+              </div>
+            </li>
+            <li class="cursor-pointer p-1">
+              <div class="row">
+                <div class="col-6">
+                  <i class="fa-solid fa-circle-xmark fa-lg txt " type="button"></i>
+                  <span style="margin: 0.5rem;">99.99 $</span>
+                </div>
+                <div class="col-6 d-flex justify-content-end">
+                  <span class="me-4">test 3</span>
+                  <span class="me-3">2</span>
+                  <i class="fa-solid fa-angle-left fa-lg mt-2 pt-1 txt" type="button"></i>
+                </div>
+              </div>
+            </li>
+            <li class="cursor-pointer p-1">
+              <div class="row">
+                <div class="col-6">
+                  <i class="fa-solid fa-circle-xmark fa-lg txt " type="button"></i>
+                  <span style="margin: 0.5rem;">99.99 $</span>
+                </div>
+                <div class="col-6 d-flex justify-content-end">
+                  <span class="me-4">test 3</span>
+                  <span class="me-3">2</span>
+                  <i class="fa-solid fa-angle-left fa-lg mt-2 pt-1 txt" type="button"></i>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mt-auto p-3">
+          <ul class="list-unstyled">
+            <li class=" border-top py-3 d-flex justify-content-between">
+              <span>1500 $</span>
+              <span>Total</span>
+            </li>
+            <li class="border-top py-3 d-flex justify-content-between">
+              <span>15 $</span>
+              <span>Tax</span>
+            </li>
+            <li class="border-top py-3 d-flex justify-content-end">
+              <span class="me-3 txt">Add more</span>
+              <i class="fa-solid fa-circle-plus fa-lg mt-2 pt-1 txt" type="button"></i></button>
+            </li>
+          </ul>
+        </div>
+
+        <!-- simple img show on left container -->
+
+        <!-- <div>
+            <img class="img-fluid" src="./images/pic1.png" alt="">
+          </div> -->
+
+        <div class=" mt-auto">
+          <button class="btn btn-lg btn-warning clr border-0 rounded-0 text-white rounded-bottom w-100" type="button">Button</button>
+        </div>
+      </div>
+
+      <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add User</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <input class="form-control me-2" type="search" id="searchInput" placeholder="Search &#128269;" aria-label="Search" style="text-align: right;">
+          </div>
+          
+          <div id="searchResults" style="text-align: right;">
+            <!-- Dummy data will be displayed here -->
+          </div>
+          
+          <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label">Name</label>
+            <input type="text" class="form-control" required id="formGroupExampleInput" placeholder="Name">
+          </div>
+          <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label">Password</label>
+            <input type="text" class="form-control" required id="formGroupExampleInput2" placeholder="Password">
+          </div>
+        </div>
+        <div class="modal-footer d-flex justify-content-center align-items-center">
+          <button type="submit"  class="btn clr clr-txt w-75 " data-bs-dismiss="modal">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+      <!-- RIGHT CONTAINER -->
+      <div class="col-12 col-md-8 position-relative">
+
+        <!-- EDIT DIV -->
+
+        <div class="container bg-white shadow-lg rounded p-3">
+          <div class="row">
+            <div class="col-6">
+              <span>RS./ 1000</span>
+              <i class="fa-solid fa-pen ms-3"></i>
+            </div>
+            <div class="col-6 d-flex justify-content-end">
+              <span>Product Name</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RADIO INPUT OR SELECT PRODUCTS SECTION -->
+        <div class="container my-3">
+
+       <!-- FIRST ROW OF SELECT ITEMS -->
+
+          <div class="row">
+            <div class="col-12 col-sm-6 col-md-3 p-3"></div>
+            <div class="col-12 col-sm-6 col-md-3 p-3">
+              <div class="form-check clr rounded p-3">
+                <div class="row">
+                  <div class="col-12 col-sm-10">
+                    <label class="form-check-label" for="flexCheckDefault1">
+                     Product 1
+                      <i class="fa-solid fa-dollar-sign fa-lg"></i>
+                    </label>
+                  </div>
+                  <div class="col-12 col-sm-2 d-flex justify-content-end">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" >
+                  </div>
+                </div>
+                
+             
+                
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3 p-3 ">
+              <div class="form-check clr rounded p-3">
+                <div class="row ">
+                  <div class="col-12 col-sm-10">
+                    <label class="form-check-label" for="flexCheckDefault2">
+                      Product 2
+                      <i class="fa-solid fa-dollar-sign fa-lg"></i>
+                    </label>
+                  </div>
+                  <div class="col-12 col-sm-2 d-flex justify-content-end">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3 p-3 ">
+              <div class="form-check clr rounded p-3">
+                <div class="row ">
+                  <div class="col-12 col-sm-10">
+                    <label class="form-check-label" for="flexCheckDefault3">
+                      Product 3
+                      <i class="fa-solid fa-dollar-sign fa-lg"></i>
+                    </label>
+                  </div>
+                  <div class="col-12 col-sm-2 d-flex justify-content-end">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+           <!--  SECOND ROW OF SELECT ITEMS -->
+          <div class="row">
+            <div class="col-12 col-sm-6 col-md-3 p-3"></div>
+            <div class="col-12 col-sm-6 col-md-3 p-3">
+              <div class="form-check clr rounded p-3">
+                <div class="row ">
+                  <div class="col-12 col-sm-10">
+                    <label class="form-check-label" for="flexCheckDefault4">
+                      Product 4
+                      <i class="fa-solid fa-dollar-sign fa-lg"></i>
+                    </label>
+                  </div>
+                  <div class="col-12 col-sm-2 d-flex justify-content-end">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3 p-3 ">
+              <div class="form-check clr rounded p-3">
+                <div class="row ">
+                  <div class="col-12 col-sm-10">
+                    <label class="form-check-label" for="flexCheckDefault5">
+                      Product 5
+                      <i class="fa-solid fa-dollar-sign fa-lg"></i>
+                    </label>
+                  </div>
+                  <div class="col-12 col-sm-2 d-flex justify-content-end">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault5">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3 p-3 ">
+              <div class="form-check clr rounded p-3">
+                <div class="row ">
+                  <div class="col-12 col-sm-10">
+                    <label class="form-check-label" for="flexCheckDefault6">
+                      Product 6
+                      <i class="fa-solid fa-dollar-sign fa-lg"></i>
+                    </label>
+                  </div>
+                  <div class="col-12 col-sm-2 d-flex justify-content-end">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault6">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="container  my-3 p-3">
+          <div class="row bg-white shadow-lg p-3 rounded d-none" id="product1" >
+            <div class="col-6">
+              <i class="fa-solid fa-minus txt ms-3" type="button" id="minus1"></i>
+            </div>
+            <div class="col-6 d-flex justify-content-end" >
+              <span class="txt">Product 1</span>
+              <span class="ms-3">RS 1000</span>
+            </div>
+          </div>
+          <div class="row my-3 bg-white shadow-lg p-3 rounded d-none " id="product2">
+            <div class="col-6">
+              <i class="fa-solid fa-minus txt ms-3" type="button" id="minus2"></i>
+            </div>
+            <div class="col-6 d-flex justify-content-end">
+              <span class="txt">Product 2</span>
+              <span class="ms-3">RS 1000</span>
+            </div>
+          </div>
+          <div class="row my-3 bg-white shadow-lg p-3 rounded d-none " id="product3">
+            <div class="col-6">
+              <i class="fa-solid fa-minus txt ms-3" type="button" id="minus3"></i>
+            </div>
+            <div class="col-6 d-flex justify-content-end">
+              <span class="txt">Product 3</span>
+              <span class="ms-3">RS 1000</span>
+            </div>
+          </div>
+          <div class="row my-3 bg-white shadow-lg p-3 rounded d-none " id="product4">
+            <div class="col-6">
+              <i class="fa-solid fa-minus txt ms-3" type="button" id="minus4"></i>
+            </div>
+            <div class="col-6 d-flex justify-content-end">
+              <span class="txt">Product 4</span>
+              <span class="ms-3">RS 1000</span>
+            </div>
+          </div>
+          <div class="row my-3 bg-white shadow-lg p-3 rounded d-none " id="product5">
+            <div class="col-6">
+              <i class="fa-solid fa-minus txt ms-3" type="button" id="minus5"></i>
+            </div>
+            <div class="col-6 d-flex justify-content-end">
+              <span class="txt">Product 5</span>
+              <span class="ms-3">RS 1000</span>
+            </div>
+          </div>
+          <div class="row my-3 bg-white shadow-lg p-3 rounded d-none " id="product6">
+            <div class="col-6">
+              <i class="fa-solid fa-minus txt ms-3" type="button" id="minus6"></i>
+            </div>
+            <div class="col-6 d-flex justify-content-end">
+              <span class="txt">Product 6</span>
+              <span class="ms-3">RS 1000</span>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label d-flex justify-content-end">Example textarea <i class="fa-solid fa-message fa-lg mt-3 ms-3"></i> </label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <div class="dropdown container bg-white shadow-lg rounded p-3">
+       
+            <div class="row dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <div class="col-6">
+                <i class="fa-solid fa-angle-down fa-lg d-none"></i>
+              </div>
+              <div class="col-6 d-flex justify-content-end">
+                <span>Product Name</span>
+              </div>
+            </div>
+          
+          <ul class="dropdown-menu col-12">
+            <li><button class="dropdown-item" type="button">Test 1</button></li>
+            <li><button class="dropdown-item" type="button">Test 2</button></li>
+            <li><button class="dropdown-item" type="button">Test 3</button></li>
+          </ul>
+        </div>
+       
+
+
+        <div class="bottom-fixed mt-3 w-100">
+          <button class="btn btn-lg btn-warning clr border-0 text-white  w-100" type="button">Button</button>
+        </div>
+
+
+
+        <!-- <div class=" rounded pt-2 ">
+          <div class="row">
+            <div id="menu" class="mx-auto ">
+              <div id="prev">
+                <i class="fa-solid fa-chevron-left"></i>
+              </div>
+              <div id="next">
+                <i class="fa-solid fa-chevron-right"></i>
+              </div>
+              <ul id="cards">
+                <li id="box1" class="list pt-2"> test 1
+                </li>
+                <li id="box2" class="list pt-2"> test 2
+                </li>
+                <li id="box3" class="list pt-2"> test 3
+                </li>
+                <li id="box4" class="list pt-2"> test 4
+                </li>
+                <li id="box5" class="list pt-2"> test 5
+                </li>
+              </ul>
+            </div>
+          </div>
+
+
+
+          <div class="row mt-4">
+            <div class="col-lg-6 col-md-6 col-sm-6 position-relative p-3">
+              <div class="row g-0 rounded flex-md-row mb-4 shadow-sm z-0 position-relative" style="background: #e5e5e5;">
+                <div class="container position-absolute z-1 bottom-0 d-flex justify-content-end">
+                  <img class="" height="160" width="105" src="./images/girl.png" alt="Featured Image">
+                </div>
+                <div class="col p-2 d-flex flex-column justify-content-start align-items-start">
+                  <div class="text-center bg-transparent p-4">
+                    <p>Some text goes here.</p>
+                    <button class="btn btn-outline-dark">Buy Now</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 position-relative p-3">
+              <div class="row g-0 rounded flex-md-row mb-4 shadow-sm z-0 position-relative" style="background: #e5e5e5;">
+                <div class="container position-absolute z-1 bottom-0 d-flex justify-content-end">
+                  <img class="" height="160" width="105" src="./images/girl.png" alt="Featured Image">
+                </div>
+                <div class="col p-2 d-flex flex-column justify-content-start align-items-start">
+                  <div class="text-center bg-transparent p-4">
+                    <p>Some text goes here.</p>
+                    <button class="btn btn-outline-dark">Buy Now</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+            <div class="col-lg-6 col-md-6 col-sm-6 position-relative p-3">
+              <div class="row g-0 rounded flex-md-row mb-4 shadow-sm z-0 position-relative" style="background: #e5e5e5;">
+                <div class="container position-absolute z-1 bottom-0 d-flex justify-content-end">
+                  <img class="" height="160" width="105" src="./images/girl.png" alt="Featured Image">
+                </div>
+                <div class="col p-2 d-flex flex-column justify-content-start align-items-start">
+                  <div class="text-center bg-transparent p-4">
+                    <p>Some text goes here.</p>
+                    <button class="btn btn-outline-dark">Buy Now</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 position-relative p-3">
+              <div class="row g-0 rounded flex-md-row mb-4 shadow-sm z-0 position-relative" style="background: #e5e5e5;">
+                <div class="container position-absolute z-1 bottom-0 d-flex justify-content-end">
+                  <img class="" height="160" width="105" src="./images/girl.png" alt="Featured Image">
+                </div>
+                <div class="col p-2 d-flex flex-column justify-content-start align-items-start">
+                  <div class="text-center bg-transparent p-4">
+                    <p>Some text goes here.</p>
+                    <button class="btn btn-outline-dark">Buy Now</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 position-relative p-3">
+              <div class="row g-0 rounded flex-md-row mb-4 shadow-sm z-0 position-relative" style="background: #e5e5e5;">
+                <div class="container position-absolute z-1 bottom-0 d-flex justify-content-end">
+                  <img class="" height="160" width="105" src="./images/girl.png" alt="Featured Image">
+                </div>
+                <div class="col p-2 d-flex flex-column justify-content-start align-items-start">
+                  <div class="text-center bg-transparent p-4">
+                    <p>Some text goes here.</p>
+                    <button class="btn btn-outline-dark">Buy Now</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 position-relative p-3">
+              <div class="row g-0 rounded flex-md-row mb-4 shadow-sm z-0 position-relative" style="background: #e5e5e5;">
+                <div class="container position-absolute z-1 bottom-0 d-flex justify-content-end">
+                  <img class="" height="160" width="105" src="./images/girl.png" alt="Featured Image">
+                </div>
+                <div class="col p-2 d-flex flex-column justify-content-start align-items-start">
+                  <div class="text-center bg-transparent p-4">
+                    <p>Some text goes here.</p>
+                    <button class="btn btn-outline-dark">Buy Now</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 position-relative p-3">
+              <div class="row g-0 rounded flex-md-row mb-4 shadow-sm z-0 position-relative" style="background: #e5e5e5;">
+                <div class="container position-absolute z-1 bottom-0 d-flex justify-content-end">
+                  <img class="" height="160" width="105" src="./images/girl.png" alt="Featured Image">
+                </div>
+                <div class="col p-2 d-flex flex-column justify-content-start align-items-start">
+                  <div class="text-center bg-transparent p-4">
+                    <p>Some text goes here.</p>
+                    <button class="btn btn-outline-dark">Buy Now</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 position-relative p-3">
+              <div class="row g-0 rounded flex-md-row mb-4 shadow-sm z-0 position-relative" style="background: #e5e5e5;">
+                <div class="container position-absolute z-1 bottom-0 d-flex justify-content-end">
+                  <img class="" height="160" width="105" src="./images/girl.png" alt="Featured Image">
+                </div>
+                <div class="col p-2 d-flex flex-column justify-content-start align-items-start">
+                  <div class="text-center bg-transparent p-4">
+                    <p>Some text goes here.</p>
+                    <button class="btn btn-outline-dark">Buy Now</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+         
+          </div>
+
+          <!-- FIRST ROW -->
+        <!--  <div class="d-flex flex-wrap flex-sm-wrap flex-md-wrap flex-lg-nowrap mt-3">
+            <div class="p-2 prodiv " >
+              <div class="card shadow-sm d-flex justify-content-center align-items-center ">
+                <img src="./images/cc.png" type="button" alt="loading" class="img-fluid w-75 h-75">
+                <div class=" d-flex justify-content-center align-items-center fs-6  ">Product1</div>
+                <div class="d-flex justify-content-center align-items-center">
+                 <span class="propric">0.59</span>
+                </div>
+              </div>
+            </div>
+            <div class="p-2 prodiv " >
+              <div class="card shadow-sm d-flex justify-content-center align-items-center ">
+                <img src="./images/cc.png" type="button" alt="loading" class="img-fluid w-75 h-75">
+                <div class=" d-flex justify-content-center align-items-center fs-6  ">Product2 </div>
+                <div class="d-flex justify-content-center align-items-center">
+                  <span class="propric"> 0.59</span>
+
+                </div>
+              </div>
+            </div>
+            <div class="p-2 prodiv " >
+              <div class="card shadow-sm d-flex justify-content-center align-items-center ">
+                <img src="./images/cc.png" type="button" alt="loading" class="img-fluid w-75 h-75">
+                <div class=" d-flex justify-content-center align-items-center fs-6  ">Product3 </div>
+                <div class="d-flex justify-content-center align-items-center ">
+                  <span class="propric"> 0.59</span>
+
+                </div>
+              </div>
+            </div>
+            <div class="p-2 prodiv " >
+              <div class="card shadow-sm d-flex justify-content-center align-items-center ">
+                <img src="./images/cc.png" type="button" alt="loading" class="img-fluid w-75 h-75">
+                <div class=" d-flex justify-content-center align-items-center fs-6  ">Product4 </div>
+                <div class="d-flex justify-content-center align-items-center">
+                  <span class="propric"> 0.59</span>
+
+                </div>
+              </div>
+            </div>
+            <div class="p-2 prodiv " >
+              <div class="card shadow-sm d-flex justify-content-center align-items-center ">
+                <img src="./images/cc.png" type="button" alt="loading" class="img-fluid w-75 h-75">
+                <div class=" d-flex justify-content-center align-items-center fs-6  ">Product5 </div>
+                <div class="d-flex justify-content-center align-items-center">
+                  <span class="propric"> 0.59</span>
+
+                </div>
+              </div>
+            </div>
+          </div> -->
+
+        <!-- 2nd ROW -->
+        <!--   <div class="d-flex flex-wrap flex-sm-wrap flex-md-wrap flex-lg-nowrap mb-3">
+            <div class="p-2 prodiv ">
+              <div class="card shadow-sm d-flex justify-content-center align-items-center ">
+                <img src="./images/cc.png" type="button" alt="loading" class="img-fluid w-75 h-75">
+                <div class=" d-flex justify-content-center align-items-center fs-6  ">Product6 </div>
+                <div class="d-flex justify-content-center align-items-center">
+                 <span class="propric"> 0.59</span>
+
+                </div>
+              </div>
+            </div>
+            <div class="p-2 prodiv " >
+              <div class="card shadow-sm d-flex justify-content-center align-items-center ">
+                <img src="./images/cc.png" type="button" alt="loading" class="img-fluid w-75 h-75">
+                <div class=" d-flex justify-content-center align-items-center fs-6  ">Product7 </div>
+                <div class="d-flex justify-content-center align-items-center">
+                  <span class="propric"> 0.59</span>
+
+                </div>
+              </div>
+            </div>
+            <div class="p-2 prodiv " >
+              <div class="card shadow-sm d-flex justify-content-center align-items-center ">
+                <img src="./images/cc.png"  type="button"alt="loading" class="img-fluid w-75 h-75">
+                <div class=" d-flex justify-content-center align-items-center fs-6  ">Product8 </div>
+                <div class="d-flex justify-content-center align-items-center">
+                  <span class="propric"> 0.59</span>
+
+                </div>
+              </div>
+            </div>
+            <div class="p-2 prodiv " >
+              <div class="card shadow-sm d-flex justify-content-center align-items-center ">
+                <img src="./images/cc.png" type="button" alt="loading" class="img-fluid w-75 h-75">
+                <div class=" d-flex justify-content-center align-items-center fs-6  ">Product9 </div>
+                <div class="d-flex justify-content-center align-items-center">
+                  <span class="propric"> 0.59</span>
+
+                </div>
+              </div>
+            </div>
+            <div class="p-2 prodiv " >
+              <div class="card shadow-sm d-flex justify-content-center align-items-center ">
+                <img src="./images/cc.png" type="button" alt="loading" class="img-fluid w-75 h-75">
+                <div class=" d-flex justify-content-center align-items-center fs-6  ">Product10 </div>
+                <div class="d-flex justify-content-center align-items-center">
+                  <span class="propric"> 0.59</span>
+
+                </div>
+              </div>
+            </div>
+          </div> -->
+
+        <!-- 3rd ROW -->
+       <!--  <div class="d-flex flex-wrap flex-sm-wrap flex-md-wrap flex-lg-nowrap mb-3">
+            <div class="p-2 prodiv ">
+              <div class="card shadow-sm d-flex justify-content-center align-items-center ">
+                <img src="./images/cc.png" type="button" alt="loading" class="img-fluid w-75 h-75">
+                <div class=" d-flex justify-content-center align-items-center fs-6  ">Product11 </div>
+                <div class="d-flex justify-content-center align-items-center">
+                  <span class="propric"> 0.59</span>
+
+                </div>
+              </div>
+            </div>
+            <div class="p-2 prodiv " >
+              <div class="card shadow-sm d-flex justify-content-center align-items-center ">
+                <img src="./images/cc.png" type="button" alt="loading" class="img-fluid w-75 h-75">
+                <div class=" d-flex justify-content-center align-items-center fs-6  ">Product12 </div>
+                <div class="d-flex justify-content-center align-items-center">
+                  <span class="propric"> 0.59</span>
+
+                </div>
+              </div>
+            </div>
+            <div class="p-2 prodiv " >
+              <div class="card shadow-sm d-flex justify-content-center align-items-center ">
+                <img src="./images/cc.png"  type="button" alt="loading" class="img-fluid w-75 h-75">
+                <div class=" d-flex justify-content-center align-items-center fs-6  ">Product13 </div>
+                <div class="d-flex justify-content-center align-items-center">
+                  <span class="propric"> 0.59</span>
+
+                </div>
+              </div>
+            </div>
+            <div class="p-2 prodiv " >
+              <div class="card shadow-sm d-flex justify-content-center align-items-center ">
+                <img src="./images/cc.png" type="button" alt="loading" class="img-fluid w-75 h-75">
+                <div class=" d-flex justify-content-center align-items-center fs-6  ">Product14 </div>
+                <div class="d-flex justify-content-center align-items-center">
+                  <span class="propric"> 0.59</span>
+
+                </div>
+              </div>
+            </div>
+            <div class="p-2 prodiv " >
+              <div class="card shadow-sm d-flex justify-content-center align-items-center ">
+                <img src="./images/cc.png" type="button" alt="loading" class="img-fluid w-75 h-75">
+                <div class=" d-flex justify-content-center align-items-center fs-6  ">Product15 </div>
+                <div class="d-flex justify-content-center align-items-center">
+                  <span class="propric"> 0.59</span>
+
+                </div>
+              </div>
+            </div>
+          </div> -->
+      </div>
+    </div>
+  </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+
+  <script src="./index.js">
+
+  </script>
+</body>
+
+</html>

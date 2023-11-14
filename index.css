@@ -1,0 +1,104 @@
+
+  .list{
+      width: 7rem;
+      height: 3rem;
+      background: #e5e5e5;
+      display: inline-block;
+      text-align: center;
+      border-radius: 5%;
+      position: relative;
+      overflow: hidden;
+      margin: 0 0 0 2rem;
+      cursor: pointer;
+    }
+    
+    #menu {
+      position: relative;
+      width: 90%;
+      /* height: 26rem; */
+      top: 1rem;
+      /* background-color: rgb(241, 241, 241); */
+      /* margin: 0 7rem 0 5rem; */
+      border-radius: 5rem;
+    }
+    #cards {
+      width: 80%;
+     
+      overflow: hidden;
+      white-space: nowrap;
+      display: block;
+      list-style: none;
+      padding: 0;
+      position: relative;
+      left: 5%;
+      /* bottom: 60px; */
+    }
+    
+    .list p{
+      width: 300px hidden;
+    }
+    #prev {
+      display: inline-block;
+      position: absolute;
+      left: 2%;
+      cursor: pointer;
+      font-size: 15px;
+      z-index: 1;
+      width: 50px;
+      height: 50px;
+    }
+    #next {
+      display: inline-block;
+      position: absolute;
+      right: 2%;
+      cursor: pointer;
+      font-size: 15px;
+      z-index: 1;
+      width: 50px;
+      height: 50px;
+    }
+    #prev,
+    #next{
+      margin-top: 1rem;
+      color: #aaaaaa;
+    }
+
+    @media (max-width: 336px) {
+      .list {
+        width: 7rem;
+        height: 3rem;
+        background: #e5e5e5;
+        display: inline-block;
+        text-align: center;
+        border-radius: 5%;
+        position: relative;
+        overflow: hidden;
+        margin: 0 0 0 2rem;
+        cursor: pointer;
+      }
+      }
+      .clr-txt{
+        color:white;
+      }
+      .clr{
+        background-color: rgba(255, 98, 0, 0.853); 
+      }
+      .clr:hover{
+        background-color: rgba(219, 84, 0, 0.853); 
+      }
+      .txt{
+        color:  rgba(255, 98, 0, 0.853);
+      }
+      .active{
+        color:white;
+        background-color: rgba(255, 98, 0, 0.853);
+      
+      }
+      .active-none{
+        color: rgba(255, 98, 0, 0.853);
+      
+      }
+      .borclr{
+        border-color: orangered;
+      }
+      
